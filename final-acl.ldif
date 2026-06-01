@@ -1,0 +1,27 @@
+dn: olcDatabase={2}mdb,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: {0}to attrs=userPassword by anonymous auth by users auth by self wr
+ ite by dn.exact="uid=superadmin,ou=managers,dc=company,dc=com" manage by * no
+ ne
+olcAccess: {1}to dn.subtree="ou=audit,dc=company,dc=com" by dn.exact="uid=ldap
+ _reader,ou=services,dc=company,dc=com" read by dn.exact="uid=ldap_audit_servi
+ ce,ou=services,dc=company,dc=com" manage by set="[cn=audit_admins,ou=audit,dc
+ =company,dc=com]/member & user" manage by self read by * none
+olcAccess: {2}to dn.subtree="ou=developer,dc=company,dc=com" by dn.exact="uid=
+ ldap_reader,ou=services,dc=company,dc=com" read by dn.exact="uid=ldap_develop
+ er_service,ou=services,dc=company,dc=com" manage by set="[cn=developers_admin
+ s,ou=developer,dc=company,dc=com]/member & user" manage by self read by * non
+ e
+olcAccess: {3}to dn.subtree="ou=tester,dc=company,dc=com" by dn.exact="uid=lda
+ p_reader,ou=services,dc=company,dc=com" read by dn.exact="uid=ldap_tester_ser
+ vice,ou=services,dc=company,dc=com" manage by set="[cn=testers_admins,ou=test
+ er,dc=company,dc=com]/member & user" manage by self read by * none
+olcAccess: {4}to dn.subtree="ou=managers,dc=company,dc=com" by dn.exact="uid=l
+ dap_reader,ou=services,dc=company,dc=com" read by dn.exact="uid=superadmin,ou
+ =managers,dc=company,dc=com" manage by self read by * none
+olcAccess: {5}to dn.subtree="dc=company,dc=com" by dn.exact="uid=ldap_reader,o
+ u=services,dc=company,dc=com" read by * break
+olcAccess: {6}to dn.subtree="dc=company,dc=com" by dn.exact="uid=ldap_global_a
+ dmin,ou=services,dc=company,dc=com" read by * break
+olcAccess: {7}to * by self read by * none

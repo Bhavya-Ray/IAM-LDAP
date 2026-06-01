@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  ldap:
+    image: osixia/openldap:latest
+    container_name: ldap-service
+    environment:
+      - LDAP_ORGANISATION=Company
+      - LDAP_DOMAIN=company.com
+      - LDAP_ADMIN_PASSWORD=admin
+      - LDAP_CONFIG_PASSWORD=config
+      - LDAP_TLS=false
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./ldap-bootstrap.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/50-bootstrap.ldif
+      - ./final-acl.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/60-acls.ldif
+    networks:
+      - ldap-net
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin-service
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=ldap
+      - PHPLDAPADMIN_HTTPS=false
+    ports:
+      - "8080:80"
+    depends_on:
+      - ldap
+    networks:
+      - ldap-net
+
+networks:
+  ldap-net:
+    driver: bridge

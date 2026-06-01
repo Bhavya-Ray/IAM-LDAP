@@ -1,0 +1,387 @@
+version: 1
+
+dn: dc=company,dc=com
+objectClass: dcObject
+objectClass: organization
+objectClass: top
+dc: company
+o: Company
+
+dn: ou=da,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: da
+
+dn: ou=audit,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: audit
+
+dn: ou=infra,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: infra
+
+dn: ou=tester,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: tester
+
+dn: ou=managers,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: managers
+
+dn: ou=services,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: services
+
+dn: ou=developer,dc=company,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: developer
+
+dn: uid=da1,ou=da,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: da
+sn: one
+businessCategory: USER
+employeeType: active
+mail: daone@gmail.com
+mobile: 9876543210
+title: Employee
+uid: da1
+userPassword:: ZGEx
+
+dn: uid=da2,ou=da,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: da
+sn: two
+businessCategory: USER
+employeeType: active
+mail: datwo@gmail.com
+mobile: 7418529630
+title: Employee
+uid: da2
+userPassword:: ZGEy
+
+dn: cn=da_admins,ou=da,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: DA_admins
+member: uid=da1,ou=da,dc=company,dc=com
+
+dn: uid=au1,ou=audit,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Audit One
+sn: User
+businessCategory: ADMIN
+employeeType: active
+mail: au1@company.com
+mobile: 8888888881
+title: Audit Admin
+uid: au1
+userPassword:: YXUxMjM=
+
+dn: uid=au2,ou=audit,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Audit Two
+sn: User
+businessCategory: USER
+employeeType: active
+mail: au2@company.com
+mobile: 8888888882
+title: Auditor
+uid: au2
+userPassword:: YXUxMjM=
+
+dn: uid=au3,ou=audit,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Audit Three
+sn: User
+businessCategory: USER
+employeeType: active
+mail: au3@company.com
+mobile: 8888888883
+title: Auditor
+uid: au3
+userPassword:: YXUxMjM=
+
+dn: uid=au4,ou=audit,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Audit Four
+sn: User
+businessCategory: USER
+employeeType: active
+mail: au4@company.com
+mobile: 8888888884
+title: Auditor
+uid: au4
+userPassword:: YXUxMjM=
+
+dn: cn=audit_admins,ou=audit,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: audit_admins
+member: uid=au1,ou=audit,dc=company,dc=com
+
+dn: cn=da_mapping,ou=infra,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: da_mapping
+member: uid=ldap_da_service,ou=services,dc=company,dc=com
+o: daservice123
+
+dn: cn=audit_mapping,ou=infra,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: audit_mapping
+member: uid=ldap_audit_service,ou=services,dc=company,dc=com
+o: auditservice123
+
+dn: cn=tester_mapping,ou=infra,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: tester_mapping
+member: uid=ldap_tester_service,ou=services,dc=company,dc=com
+o: testerservice123
+
+dn: cn=developer_mapping,ou=infra,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: developer_mapping
+member: uid=ldap_developer_service,ou=services,dc=company,dc=com
+o: devservice123
+
+dn: uid=tester1,ou=tester,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Tester One
+sn: User
+businessCategory: ADMIN
+employeeType: active
+mail: tester1@company.com
+mobile: 6666666661
+title: QA Lead
+uid: tester1
+userPassword:: dGVzdGVyMTIz
+
+dn: uid=tester2,ou=tester,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Tester Two
+sn: User
+businessCategory: USER
+employeeType: active
+mail: tester2@company.com
+mobile: 6666666662
+title: Tester
+uid: tester2
+userPassword:: dGVzdGVyMTIz
+
+dn: uid=tester3,ou=tester,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Tester Three
+sn: User
+businessCategory: USER
+employeeType: active
+mail: tester3@company.com
+mobile: 6666666663
+title: Tester
+uid: tester3
+userPassword:: dGVzdGVyMTIz
+
+dn: cn=testers_admins,ou=tester,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: testers_admins
+member: uid=tester1,ou=tester,dc=company,dc=com
+
+dn: uid=superadmin,ou=managers,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Super Admin
+sn: Admin
+businessCategory: SUPER_ADMIN
+employeeType: active
+mail: superadmin@company.com
+mobile: 9999999999
+title: Global Administrator
+uid: superadmin
+userPassword:: c3VwZXJhZG1pbjEyMw==
+
+dn: uid=ldap_reader,ou=services,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: LDAP Reader
+sn: Service
+businessCategory: SERVICE
+uid: ldap_reader
+userPassword:: cmVhZGVyMTIz
+
+dn: uid=ldap_da_service,ou=services,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: LDAP da Service
+sn: Service
+businessCategory: SERVICE
+uid: ldap_da_service
+userPassword:: ZGFzZXJ2aWNlMTIz
+
+dn: uid=ldap_global_admin,ou=services,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: LDAP Global Admin
+sn: Service
+businessCategory: SERVICE
+uid: ldap_global_admin
+userPassword:: Z2xvYmFsYWRtaW4xMjM=
+
+dn: uid=ldap_audit_service,ou=services,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: LDAP Audit Service
+sn: Service
+businessCategory: SERVICE
+uid: ldap_audit_service
+userPassword:: YXVkaXRzZXJ2aWNlMTIz
+
+dn: uid=ldap_tester_service,ou=services,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: LDAP Tester Service
+sn: Service
+businessCategory: SERVICE
+uid: ldap_tester_service
+userPassword:: dGVzdGVyc2VydmljZTEyMw==
+
+dn: uid=ldap_developer_service,ou=services,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: LDAP Developer Service
+sn: Service
+businessCategory: SERVICE
+uid: ldap_developer_service
+userPassword:: ZGV2c2VydmljZTEyMw==
+
+dn: uid=imp1,ou=developer,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Developer One
+sn: User
+businessCategory: ADMIN
+employeeType: active
+mail: imp1@company.com
+mobile: 7777777771
+title: Developer Admin
+uid: imp1
+userPassword:: aW1wMTIz
+
+dn: uid=imp2,ou=developer,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Developer Two
+sn: User
+businessCategory: USER
+employeeType: active
+mail: imp2@company.com
+mobile: 7777777772
+title: Developer
+uid: imp2
+userPassword:: aW1wMTIz
+
+dn: uid=imp3,ou=developer,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Developer Three
+sn: User
+businessCategory: USER
+employeeType: active
+mail: imp3@company.com
+mobile: 7777777773
+title: Developer
+uid: imp3
+userPassword:: aW1wMTIz
+
+dn: uid=imp4,ou=developer,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Developer Four
+sn: User
+businessCategory: USER
+employeeType: active
+mail: imp4@company.com
+mobile: 7777777774
+title: Developer
+uid: imp4
+userPassword:: aW1wMTIz
+
+dn: uid=imp5,ou=developer,dc=company,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: imp
+sn: five
+businessCategory: USER
+employeeType: active
+mail: impfive@gmail.com
+mobile: 7777777775
+title: Employee
+uid: imp5
+userPassword:: aW1wNQ==
+
+dn: cn=developers_admins,ou=developer,dc=company,dc=com
+objectClass: groupOfNames
+objectClass: top
+cn: developers_admins
+member: uid=imp1,ou=developer,dc=company,dc=com
+
